@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact — Mistiremariam Getahun Girma</title>
+
+  <!-- Common stylesheet -->
+  <link rel="stylesheet" href="../css/style.css" />
+
+  <!-- SEO basics -->
+  <meta name="description" content="Get in touch with Mistiremariam — portfolio contact page." />
+  <meta name="robots" content="index,follow" />
+</head>
+<body class="contact-page">
+
+  <!-- Header -->
+  <header class="site-header">
+    
+      
+      <nav class="site-nav">
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about/about.html">About</a></li>
+          <li><a href="../certificates/certificates.html">Certificates</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a href="../projects/projects.html">Projects</a></li>
+          
+        </ul>
+      </nav>
+    
+  </header>
+
+  <main>
+    <!-- Hero section -->
+    <section class="hero section">
+      <div class="container hero-flex">
+        <div class="hero-text">
+          <h1>Let’s Connect</h1>
+          <p class="lead">
+            Whether it’s a collaboration, job opportunity, or just a hello — 
+            I’d love to hear from you.
+          </p>
+          <a href="#contact-form" class="btn primary">Send me a message</a>
+        </div>
+        <div class="hero-card card">
+          <h2>Quick Info</h2>
+          <ul class="kv-list">
+            <li><span>Response time</span> <span>24–48 hours</span></li>
+            <li><span>Location</span> <span>Addis Ababa, Ethiopia</span></li>
+            <li><span>Status</span> <span>Open to opportunities</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact links -->
+    <section class="section">
+      <div class="container grid-3">
+        <div class="card contact-card">
+          <h3>Email</h3>
+          <p class="muted">Best for detailed inquiries</p>
+          <a href="mailto:mistiremariamgirma@gmail.com" class="link-row">
+            mistiremariamgirma@gmail.com →
+          </a>
+        </div>
+        <div class="card contact-card">
+          <h3>LinkedIn</h3>
+          <p class="muted">Let’s connect professionally</p>
+          <a href="https://www.linkedin.com/in/mistiremariam-girma-91875a18a/" target="_blank" rel="noopener" class="link-row">
+            Mistiremariam Girma →
+          </a>
+        </div>
+        <div class="card contact-card">
+          <h3>GitHub</h3>
+          <p class="muted">View my work & projects</p>
+          <a href="https://github.com/mistiremariam" target="_blank" rel="noopener" class="link-row">
+            Mistiremariam Getahun Girma→
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact form -->
+    <section id="contact-form" class="section alt">
+      <div class="container">
+        <h2 class="section-title">Send a Message</h2>
+        <p class="muted center">Fill out the form below, and I’ll get back to you soon.</p>
+
+        <form class="card form" id="contactMailtoForm" novalidate>
+          <div class="form-grid">
+            <div class="form-field">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" placeholder="Jane Doe" required />
+              <small class="error"></small>
+            </div>
+            <div class="form-field">
+              <label for="email">Your email</label>
+              <input type="email" id="email" name="email" placeholder="jane@example.com" required />
+              <small class="error"></small>
+            </div>
+            <div class="form-field full">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" name="subject" placeholder="Collaboration idea" required />
+              <small class="error"></small>
+            </div>
+            <div class="form-field full">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="6" placeholder="Tell me more…" required></textarea>
+              <small class="error"></small>
+            </div>
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn primary">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Mistiremariam Getahun Girma. All rights reserved.</p>
+      <nav class="footer-nav">
+        <a href="../index.html">Home</a>
+        <a href="../about/about.html">About</a>
+        <a href="../certificates/certificates.html">Certificates</a>
+        <a href="../projects/projects.html">Projects</a>
+        <a href="contact.html" aria-current="page">Contact</a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Shared script -->
+  <script defer src="../js/script.js"></script>
+
+  <!-- Inline: Contact form email -->
+  <script>
+    (function () {
+      const form = document.getElementById('contactMailtoForm');
+      const yearEl = document.getElementById('year');
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+      function encode(s) {
+        return encodeURIComponent(s).replace(/%20/g, '+');
+      }
+
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const subject = document.getElementById('subject').value.trim();
+        const message = document.getElementById('message').value.trim();
+
+        if (!name || !email || !subject || !message) return;
+
+        const to = "mistiremariamgirma@gmail.com";
+        const subj = `[Portfolio] ${subject} — ${name}`;
+        const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
+
+        window.location.href = `mailto:${to}?subject=${encode(subj)}&body=${encode(body)}`;
+      });
+    })();
+  </script>
+</body>
+</html>
